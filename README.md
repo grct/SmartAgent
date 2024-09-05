@@ -22,6 +22,8 @@ In this example, I make a request to the agent that requires 3 steps:
 2.  Find the price of a **Camel**.
 3.  Create a **Tool** that, given the input of a number of Camels, calculates how many more are needed to buy a Tesla Model 3.
 
+I expect it to find the first two data using the `web search` tool, and finally create the tool using the `create_tool` tool
+
 This is the query:
 
 > Find the current price of a Tesla Model 3 and a camel. Then create a
