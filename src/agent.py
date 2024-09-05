@@ -40,9 +40,8 @@ graph_builder.add_conditional_edges(
     tools_condition,
 )
 
-# Any time a tool is called, we return to the chatbot to decide the next step
 graph_builder.add_edge("tools", "load_new_tools")
-graph_builder.add_edge(["tools", "load_new_tools"], "chatbot")
+graph_builder.add_edge("load_new_tools", "chatbot")
 graph_builder.set_entry_point("chatbot")
 graph = graph_builder.compile()
 

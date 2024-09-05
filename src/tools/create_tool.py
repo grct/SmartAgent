@@ -22,12 +22,13 @@ def create_tool(query: str, name: str):
     system = (f"Create a new Lang Graph tool that {query} using the following template."
               f"Replace the parts in caps with the code needed to make the tool work."
               f"Only return the working python code, DO NOT reply with any other type of text, not even before the code"
+              f"Questions or long Strings MUST NOT be passed throught IF statements"
+              f"Always import: 'from langchain_core.tools import tool'"
               f"DO NOT use Markdown, use simple text with the right indentation"
-              f"DO NOT use ```python before the code"
-              f"Questions or Long texts MUST NOT be passed throught IF statements")
+              f"DO NOT use ```python before the code")
 
     context = f"""
-from langchain_core.tools import tool # Do not change this line
+from langchain_core.tools import tool # KEEP THIS IMPORT
 @tool # Do not change this line
 # Tools have only one function, do not create other functions
 def {name}(TOOL_PARAM: TOOL_PARAM_TYPE):
